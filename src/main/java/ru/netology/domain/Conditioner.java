@@ -23,8 +23,6 @@ public class Conditioner {
 
     }
 
-
-
     public void decreaseCurrentTemperature() {
 
         int minTemperature = 18;

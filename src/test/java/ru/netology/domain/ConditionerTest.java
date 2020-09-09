@@ -34,8 +34,6 @@ class ConditionerTest {
 
     }
 
-
-
     @Test
 
     void shouldDecreaseCurrentTemperatureInUsualConditions() {
@@ -47,7 +45,6 @@ class ConditionerTest {
         assertEquals(21, conditioner.getCurrentTemperature());
 
     }
-
 
 
     @Test
