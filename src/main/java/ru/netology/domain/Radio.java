@@ -40,12 +40,15 @@ public class Radio {
             currentVolume += 1;
         }
     }
-    public void decreaseVolume(){
+
+    public void decreaseVolume() {
         if (currentVolume == minVolume) {
             return;
-        }else {
-        }currentVolume -=1;
+        } else {
+        }
+        currentVolume -= 1;
     }
+
     public int getCurrentVolume() {
         return currentVolume;
     }
