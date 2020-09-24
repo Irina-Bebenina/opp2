@@ -33,9 +33,7 @@ class RadioTest {
         assertEquals(6, radio.getCurrentRadioStation());
     }
     @Test
-
     void shouldChangeTheStationByPrevButtonIfCurrentIsNull() {
-
         Radio radio = new Radio();
         radio.setCurrentRadioStation(0);
         radio.changeTheStationByPrevButton();

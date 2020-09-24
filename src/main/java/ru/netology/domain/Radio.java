@@ -9,7 +9,6 @@ public class Radio {
     int maxRadioStation = 9;
     int minRadioStation = 0;
 
-
     public int changeTheStationByRemoteControl(int intendedStation) {
         if (intendedStation <= 9 && intendedStation >= 0) {
             currentRadioStation = intendedStation;
@@ -64,6 +63,5 @@ public class Radio {
     public void setCurrentRadioStation(int currentRadioStation) {
         this.currentRadioStation = currentRadioStation;
     }
-
 }
 
