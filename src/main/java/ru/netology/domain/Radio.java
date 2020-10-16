@@ -1,15 +1,32 @@
 package ru.netology.domain;
 
 public class Radio {
-    private int maxStation;
-    private int minStation;
+    private int maxStation = 9;
+    private int minStation = 0;
     private int currentStation;
-    private int maxVolume;
-    private int minVolume;
+    private int numberStation;
+    private int maxVolume = 100;
+    private int minVolume = 0;
     private int currentVolume;
 
     public int getMaxStation() {
         return maxStation;
+    }
+
+    public int getNumberStation() {
+        return numberStation;
+    }
+
+    public void setNumberStation(int numberStation) {
+        if (numberStation > maxStation) {
+            this.numberStation = 9;
+        }
+        if (numberStation < minStation) {
+            this.numberStation = 0;
+        }
+        if (numberStation <= maxStation & numberStation >= minStation) {
+            this.numberStation = numberStation - 1;
+        }
     }
 
     public void setMaxStation(int maxStation) {
@@ -29,7 +46,7 @@ public class Radio {
     }
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation > maxStation) {
+        if (currentStation > numberStation) {
             return;
         }
         if (currentStation < minStation) {
@@ -40,7 +57,7 @@ public class Radio {
 
     public void nextCurrentStation() {
         int currentStation = this.currentStation;
-        if (currentStation >= maxStation) {
+        if (currentStation >= numberStation) {
             this.currentStation = minStation;
         } else {
             this.currentStation = currentStation + 1;
@@ -50,7 +67,7 @@ public class Radio {
     public void prevCurrentStation() {
         int currentStation = this.currentStation;
         if (currentStation <= minStation) {
-            this.currentStation = maxStation;
+            this.currentStation = numberStation;
         } else {
             this.currentStation = currentStation - 1;
         }
@@ -59,7 +76,8 @@ public class Radio {
     public void remoteCurrentStation(int currentStation) {
         if (currentStation > maxStation) {
             this.currentStation = maxStation;
-        } else if (currentStation < minStation) {
+        } else
+        if (currentStation < minStation) {
             this.currentStation = minStation;
         } else {
             this.currentStation = currentStation;
