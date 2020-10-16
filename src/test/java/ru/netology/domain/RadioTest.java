@@ -1,5 +1,7 @@
 package ru.netology.domain;
+
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
@@ -211,5 +213,3 @@ class RadioTest {
         assertEquals(0, radio.getNumberStation());
     }
 }
-
-

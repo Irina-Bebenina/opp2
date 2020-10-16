@@ -1,5 +1,12 @@
 package ru.netology.domain;
 
+import lombok.*;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+
 public class Radio {
     private int maxStation = 9;
     private int minStation = 0;
@@ -8,14 +15,6 @@ public class Radio {
     private int maxVolume = 100;
     private int minVolume = 0;
     private int currentVolume;
-
-    public int getMaxStation() {
-        return maxStation;
-    }
-
-    public int getNumberStation() {
-        return numberStation;
-    }
 
     public void setNumberStation(int numberStation) {
         if (numberStation > maxStation) {
@@ -27,22 +26,6 @@ public class Radio {
         if (numberStation <= maxStation & numberStation >= minStation) {
             this.numberStation = numberStation - 1;
         }
-    }
-
-    public void setMaxStation(int maxStation) {
-        this.maxStation = maxStation;
-    }
-
-    public int getMinStation() {
-        return minStation;
-    }
-
-    public void setMinStation(int minStation) {
-        this.minStation = minStation;
-    }
-
-    public int getCurrentStation() {
-        return currentStation;
     }
 
     public void setCurrentStation(int currentStation) {
@@ -76,32 +59,11 @@ public class Radio {
     public void remoteCurrentStation(int currentStation) {
         if (currentStation > maxStation) {
             this.currentStation = maxStation;
-        } else
-        if (currentStation < minStation) {
+        } else if (currentStation < minStation) {
             this.currentStation = minStation;
         } else {
             this.currentStation = currentStation;
         }
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
-    }
-
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
     }
 
     public void setCurrentVolume(int currentVolume) {
@@ -132,4 +94,3 @@ public class Radio {
         }
     }
 }
-
