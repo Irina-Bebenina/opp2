@@ -5,11 +5,20 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ConditionerTest {
+    @Test
+    public void shouldGetAndSet() {
+        Conditioner conditioner = new Conditioner();
+        String expected = "Кондишн";
+
+        assertNull(conditioner.getName());
+        conditioner.setName(expected);
+        assertEquals(expected, conditioner.getName());
+    }
 
     @Test
-    void shouldIncreaseCurrentTemperatureInNormalCondition() {
+    public void increaseCurrentTemperatureTestNormalTemperature(){
         Conditioner conditioner = new Conditioner();
-        conditioner.setMaxTemperature(35);
+        conditioner.setMaxTemperature(40);
         conditioner.setMinTemperature(10);
         conditioner.setCurrentTemperature(20);
         conditioner.increaseCurrentTemperature();
@@ -17,7 +26,7 @@ class ConditionerTest {
     }
 
     @Test
-    void shouldIncreaseCurrentTemperatureInHeatCondition() {
+    public void increaseCurrentTemperatureTestMaxBorderTemperature(){
         Conditioner conditioner = new Conditioner();
         conditioner.setMaxTemperature(40);
         conditioner.setMinTemperature(10);
@@ -27,7 +36,7 @@ class ConditionerTest {
     }
 
     @Test
-    void shouldDecreaseCurrentTemperatureInUsualConditions() {
+    public void decreaseCurrentTemperatureTestNormalTemperature(){
         Conditioner conditioner = new Conditioner();
         conditioner.setMaxTemperature(40);
         conditioner.setMinTemperature(10);
@@ -37,7 +46,7 @@ class ConditionerTest {
     }
 
     @Test
-    void shouldDecreaseCurrentTemperatureInColdConditions() {
+    public void decreaseCurrentTemperatureTestMinBorderTemperature(){
         Conditioner conditioner = new Conditioner();
         conditioner.setMaxTemperature(40);
         conditioner.setMinTemperature(10);
@@ -47,17 +56,37 @@ class ConditionerTest {
     }
 
     @Test
-    void shouldMaxTemperatureConditions(){
+    public void setMaxTemperatureTest(){
         Conditioner conditioner = new Conditioner();
-        conditioner.setMaxTemperature(32);
-        assertEquals(32,conditioner.getMaxTemperature());
+        conditioner.setMaxTemperature(40);
+        assertEquals(40,conditioner.getMaxTemperature());
     }
 
-@Test
-    void shouldMinTemperatureConditions(){
+    @Test
+    public void setMinTemperatureTest(){
         Conditioner conditioner = new Conditioner();
-        conditioner.setMinTemperature(18);
-        assertEquals(18,conditioner.getMinTemperature());
+        conditioner.setMinTemperature(10);
+        assertEquals(10,conditioner.getMinTemperature());
+    }
+
+    @Test
+    public void setCurrentTemperatureTestOverMax(){
+        Conditioner conditioner = new Conditioner();
+        conditioner.setMaxTemperature(40);
+        conditioner.setMinTemperature(10);
+        conditioner.setCurrentTemperature(30);
+        conditioner.setCurrentTemperature(60);
+        assertEquals(30, conditioner.getCurrentTemperature());
+    }
+
+    @Test
+    public void setCurrentTemperatureTestUnderMin(){
+        Conditioner conditioner = new Conditioner();
+        conditioner.setMaxTemperature(40);
+        conditioner.setMinTemperature(10);
+        conditioner.setCurrentTemperature(30);
+        conditioner.setCurrentTemperature(5);
+        assertEquals(30, conditioner.getCurrentTemperature());
     }
 
     @Test
@@ -65,15 +94,6 @@ class ConditionerTest {
         Conditioner conditioner = new Conditioner();
         conditioner.setOn(true);
         assertTrue(conditioner.isOn());
-    }
-
-    @Test
-    public void shouldGetAndSet() {
-        Conditioner conditioner = new Conditioner();
-        String expected = "Кондиционер";
-        assertNull(conditioner.getName());
-        conditioner.setName(expected);
-        assertEquals(expected, conditioner.getName());
     }
 }
 
