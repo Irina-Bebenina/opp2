@@ -1,27 +1,34 @@
 package ru.netology.domain;
 
 public class Conditioner {
-    private int currentTemperature;
-    private int minTemperature;
-    private int maxTemperature;
-    private boolean on;
     private String name;
+    private int maxTemperature;
+    private int minTemperature;
+    private int currentTemperature;
+    private boolean on;
 
-    public void increaseCurrentTemperature(){
-        int currentTemperature = this.currentTemperature;
-        if (currentTemperature >= maxTemperature) {
-            return;
-        }
-        this.currentTemperature = currentTemperature + 1;
+    public String getName() {
+        return name;
     }
 
-    public void decreaseCurrentTemperature() {
-        int currentTemperature = this.currentTemperature;
+    public void setName(String name) {
+        this.name = name;
+    }
 
-        if (currentTemperature <= minTemperature) {
-            return;
-        }
-        this.currentTemperature = currentTemperature - 1;
+    public int getMaxTemperature() {
+        return maxTemperature;
+    }
+
+    public void setMaxTemperature(int maxTemperature) {
+        this.maxTemperature = maxTemperature;
+    }
+
+    public int getMinTemperature() {
+        return minTemperature;
+    }
+
+    public void setMinTemperature(int minTemperature) {
+        this.minTemperature = minTemperature;
     }
 
     public int getCurrentTemperature() {
@@ -35,23 +42,24 @@ public class Conditioner {
         if (currentTemperature < minTemperature) {
             return;
         }
+
         this.currentTemperature = currentTemperature;
     }
 
-    public int getMinTemperature() {
-        return minTemperature;
+    public void increaseCurrentTemperature(){
+        int currentTemperature = this.currentTemperature;
+        if (currentTemperature >= maxTemperature) {
+            return;
+        }
+        this.currentTemperature = currentTemperature + 1;
     }
 
-    public void setMinTemperature(int minTemperature) {
-        this.minTemperature = minTemperature;
-    }
-
-    public int getMaxTemperature() {
-        return maxTemperature;
-    }
-
-    public void setMaxTemperature(int maxTemperature) {
-        this.maxTemperature = maxTemperature;
+    public void decreaseCurrentTemperature(){
+        int currentTemperature = this.currentTemperature;
+        if (currentTemperature <= minTemperature) {
+            return;
+        }
+        this.currentTemperature = currentTemperature - 1;
     }
 
     public boolean isOn() {
@@ -61,16 +69,6 @@ public class Conditioner {
     public void setOn(boolean on) {
         this.on = on;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }
-
-
 
 
